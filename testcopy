@@ -1,0 +1,25 @@
+<?php
+$servername = "localhost";
+$username = "codegive_cng352";
+$password = "caneren13?";
+$dbname = "codegive_cng352";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+
+if ($conn->connect_error) {
+   die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "INSERT INTO user (user_id,name,email,telephone,surname)
+VALUES ('1','halilcan','halil@halil.com','533','gunduz')";
+
+if ($conn->query($sql) === TRUE) {
+   echo "New record created successfully";
+} else {
+   echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
+?>
